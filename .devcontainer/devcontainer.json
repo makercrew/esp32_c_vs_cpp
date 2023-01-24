@@ -1,0 +1,23 @@
+{
+	"name": "C and C++ Dev",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	// Pre-configure ESP-IDF extension
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+	},
+	// Install relevant extensions in the dev container
+	"extensions": [
+		"twxs.cmake",
+		"ms-vscode.cpptools",
+		"webfreak.debug"
+	],
+    "postAttachCommand": "source /opt/esp/idf/export.sh",
+	"userEnvProbe": "loginInteractiveShell",
+	// Forward serial device to enable flash & monitor
+	"runArgs": [
+		"--device=/dev/ttyUSB0"
+	],
+	"remoteUser": "dev"
+}
